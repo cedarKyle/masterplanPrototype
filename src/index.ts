@@ -1,3 +1,6 @@
+// Notes on CodeSandBox
+// if you don't see a preview when you load this page for the first time, reload the browser tab to the right
+
 import { createViewport, createSession } from "@shapediver/viewer";
 
 (async () => {
@@ -10,7 +13,7 @@ import { createViewport, createSession } from "@shapediver/viewer";
   // create a session
   const session = await createSession({
     ticket:
-        "d4ed559232a32c7736939fbfeabb1c655157affd4d7438ee746aaa6bdd480d239527505c4018ff997a894881f95dffd3d0645510b52d950c329364527cad6c65b88a6ad3c93b8d5484d844771e08c0e91feb0ef3ec8e64bccfd947e3584f5db594f930366f7d48-f35cf89c2c59d28170e3138341bfd337",
+      "319f14f08c1e67a874fd843acecfd321049772deb0cdb5a0dbb39385592a156e83730e45c5e7af5eab52e15b1e36d44a092f71ada1331e1935b0f25d9448af34d0add0bd5abf8984325b97ee9e6106b25216446d15a86bb18b40114df89d2f5909b08e8c8b9eeb-7516be37cb2d968a0b3c545baf3ae51e",
     modelViewUrl: "https://sdeuc1.eu-central-1.shapediver.com",
     id: "mySession"
   });
