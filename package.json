@@ -7,7 +7,6 @@
     "build-prod": "webpack",
     "build-dev": "webpack serve --config ./webpack.dev.js"
   },
-  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vansicek/manglarMadre.git"
