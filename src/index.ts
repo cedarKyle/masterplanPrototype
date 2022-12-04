@@ -1,5 +1,3 @@
-// Notes on CodeSandBox
-// if you don't see a preview when you load this page for the first time, reload the browser tab to the right
 
 import { 
     createSession,
