@@ -5,21 +5,20 @@
   "main": "index.js",
   "scripts": {
     "build-prod": "webpack",
-    "build-dev": "webpack serve --config ./webpack.dev.js",
-    "start": "node_modules/next/dist/bin/next start -p $PORT"
+    "build-dev": "webpack serve --config ./webpack.dev.js"
   },
   
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shapediver/ViewerProjectTemplate.git"
+    "url": "git+https://github.com/vansicek/manglarMadre.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/shapediver/ViewerProjectTemplate/issues"
+    "url": "https://github.com/vansicek/manglarMadre"
   },
-  "homepage": "https://github.com/shapediver/ViewerProjectTemplate#readme",
+  "homepage": "https://github.com/vansicek/manglarMadre",
   "devDependencies": {
     "@types/pako": "^1.0.3",
     "aws-sdk": "^2.1121.0",
