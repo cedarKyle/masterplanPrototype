@@ -19,7 +19,7 @@ import {
   // create a session
   const session = await createSession({
     ticket:
-      "319f14f08c1e67a874fd843acecfd321049772deb0cdb5a0dbb39385592a156e83730e45c5e7af5eab52e15b1e36d44a092f71ada1331e1935b0f25d9448af34d0add0bd5abf8984325b97ee9e6106b25216446d15a86bb18b40114df89d2f5909b08e8c8b9eeb-7516be37cb2d968a0b3c545baf3ae51e",
+      "84d1db61bc0f126c9abbc51cfbf770685e31976b9796f73f2d4c60f6aa83e61f6e10ed4040956b60500dc522405f0da45f0fe596b6f8ee1245ea0168abc009f6f7706d8dc062625e57d836250a8c06be83c5624b1ac8c7965645ee3e9f03c93b03765dbe1747d9-2c95930c258b458ad510b5e6180c339e",
     modelViewUrl: "https://sdeuc1.eu-central-1.shapediver.com",
     id: "mySession"
   });
