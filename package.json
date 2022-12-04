@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build-prod": "webpack",
-    "build-dev": "webpack serve --config ./webpack.dev.js"
+    "build-dev": "webpack serve --config ./webpack.dev.js",
+    "start": "node_modules/next/dist/bin/next start -p $PORT"
   },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shapediver/ViewerProjectTemplate.git"
