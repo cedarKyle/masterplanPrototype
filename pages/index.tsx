@@ -17,8 +17,6 @@ export default function Home() {
                   "ae8567041aaeab9195e3f3a5c23be4522c2e93bf964ca32d6745869afe347e1b51004d2e57cc044629ebeaff84d8b81dc339f0fc79af8fcf96b7e716522f9bf5b47117cfb8691092959d1c4e6145358f0677e6881153b409529e859c7971a09cb357f01ef53d6e-a3536efc6b65479c74f1c08abc0943ed",
                 modelViewUrl: "https://sdeuc1.eu-central-1.shapediver.com",
                 id: "mySession",
-                showControlsInitial: true,
-                showSettingsInitial: false,
               });
             
               // read out the parameter with the specific name
