@@ -14,7 +14,7 @@ export default function Home() {
               // create a session
               const session = await createSession({
                 ticket:
-                  "ae8567041aaeab9195e3f3a5c23be4522c2e93bf964ca32d6745869afe347e1b51004d2e57cc044629ebeaff84d8b81dc339f0fc79af8fcf96b7e716522f9bf5b47117cfb8691092959d1c4e6145358f0677e6881153b409529e859c7971a09cb357f01ef53d6e-a3536efc6b65479c74f1c08abc0943ed",
+                  "cbe0324f3a8fad2ec6b844f42e7e3722cb4c2961bd86448760f60f961051dd3dd94d367a9e444bd62a09093b6ec7b241c03c0ea6e47fe174327d493d6b5ee57a529f29d112b6699f4ce36f6c2a955e69d31693a99c2adfe70f58cc6e54612e44eae448e28929bc-fbfead3bdcfc733b3f3687ad9bd1d1ed",
                 modelViewUrl: "https://sdeuc1.eu-central-1.shapediver.com",
                 id: "mySession",
               });
