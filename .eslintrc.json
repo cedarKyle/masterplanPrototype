@@ -1,4 +1,27 @@
 {
-  "extends": "next/core-web-vitals",
-  "indent": ["error", "tab"]
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "extends": [
+        "next/core-web-vitals",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "rules": {
+        "react/no-unescaped-entities": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "jsx-a11y/alt-text": "off",
+        "prefer-const": "off",
+        "sort-imports": ["warn",
+            { 
+                "ignoreCase": true,
+                "ignoreDeclarationSort": true
+            }
+        ]
+    }
 }
