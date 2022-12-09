@@ -45,24 +45,26 @@ export default function Home() {
                     </a>
                 </div>
             </div>
-
-            <div className={styles.canvasContainer}>
-                <canvas className={styles.canvas} id="canvas"></canvas>
+            <div className={styles.gridLayout}>
+                <div className={styles.canvasContainer}>
+                    <canvas className={styles.canvas} id="canvas"></canvas>
+                </div>
+                <div className={styles.inputsContainer}>
+                    <SdSession
+                        ticket={ticket}
+                        modelViewUrl={modelViewUrl}
+                    >
+                        {/* 
+                        TODO: Additional components to pull in from the example if we want to enable model interaction
+                        <SdSessionInteractionData level={interactionLevel} interactionTypes={interactionTypes}/>
+                        <SdSessionParameterBridge/>
+                        <SdSessionParameterPanel/> 
+                    */}
+                        <SdSessionInputs/>
+                    </SdSession>
+                </div>
             </div>
-            <div className={styles.inputsContainer}>
-            <SdSession
-                ticket={ticket}
-                modelViewUrl={modelViewUrl}
-            >
-                {/* 
-                TODO: Additional components to pull in from the example if we want to enable model interaction
-                <SdSessionInteractionData level={interactionLevel} interactionTypes={interactionTypes}/>
-                <SdSessionParameterBridge/>
-                <SdSessionParameterPanel/> 
-                */}
-                <SdSessionInputs/>
-            </SdSession>
-            </div>
+            <div className={styles.tableContainer}> Future Table Container </div>
         </div>
     );
 }
