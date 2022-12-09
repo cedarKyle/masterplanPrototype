@@ -53,8 +53,6 @@ export default function Home() {
             <canvas className={styles.canvas} id="canvas"></canvas>
         </div>
 
-        <iframe className ="airtable-embed" src="https://airtable.com/embed/shro4GR1nFfRnqvqf?backgroundColor=blue"></iframe>
-
 
     </div>
   );
