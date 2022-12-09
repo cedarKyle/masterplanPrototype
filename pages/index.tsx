@@ -11,7 +11,7 @@ export default function Home() {
                 canvas: document.getElementById("canvas") as HTMLCanvasElement,
                 id: "myViewport",
                 branding: {
-                  logo: "https://iili.io/HnaqKaR.png",
+                  logo: "logo.png",
                   backgroundColor: "#000000"
                 }
               });
