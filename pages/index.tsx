@@ -6,11 +6,11 @@ import SdSession from "../src/components/SdSession";
 import SdSessionInputs from "../src/components/SdSessionInputs";
 
 export default function Home() {
-    const benchTicket = "b6b127d7e06588addc43443617c1eeea7ea316bef7ad1273cdd0c82d67f89b8dd4a67a327037b0a3ba2f52377c7d0e1b2a5657dd245603b0a3771d650ea4fbdd76e8187dc21ed1824063e4041b60a28747ed5a51e48c5e77d0c683bee53fb01fa53255e24a74ae-3a01cf3d24f8366dd64a0e2dfce4d4fc";
+    const benchTicket = "a55628b5ccd16762870d14a6b168bea5406430694548998adf76678109dc658425c26671339b29e8d8688fe65757e3a3e117d55b60f63e0c73fe02ffd1e1e402d3b2173b163dd6e20782b6ea7d162d32e411e01101d6ce48c137c0a7e4f9e95b3d2c8cec128aec-a5cb37cb7caefba26adf6519b71ace17-3a01cf3d24f8366dd64a0e2dfce4d4fc";
     const benchUrl = "https://sdeuc1.eu-central-1.shapediver.com";
     
-    const shelfTicket = '124be652a22830809c7690b6490225e4db653c1b6d065bad26ae3f71ce636017f2784095eba478021d99aff9ed749ff8705f1c20f9edecefade03b27e2a48ddf7f78b8d6fef3c941c6fe48762fc9645c46effd6aa9f620311afc50cd0f294c5d640c16a2edb09d-ebeca640b168d58d6712919abc886168';
-    const shelfUrl = 'https://sddev2.eu-central-1.shapediver.com';
+    const shelfTicket = 'a55628b5ccd16762870d14a6b168bea5406430694548998adf76678109dc658425c26671339b29e8d8688fe65757e3a3e117d55b60f63e0c73fe02ffd1e1e402d3b2173b163dd6e20782b6ea7d162d32e411e01101d6ce48c137c0a7e4f9e95b3d2c8cec128aec-a5cb37cb7caefba26adf6519b71ace17-ebeca640b168d58d6712919abc886168';
+    const shelfUrl = 'https://sdeuc1.eu-central-1.shapediver.com';
     
     const [ticket, setTicket] = useState(benchTicket);
     const [modelViewUrl, setModelViewUrl] = useState(benchUrl);
