@@ -15,8 +15,11 @@ export default function Home() {
               const session = await createSession({
                 ticket:
                   "36f0358da7163f9bbb0a88543a392047fd9e405a277f6cf8a956076694daa894eacce72d29f1f134a80e9a81f34026f1740af7e611c4df9f812a91a1ed94533bc9bce84e5d96ddcd2c21bd9a89a333c592868a3a1478a9a7d457c185e15029e6b5213d896b0d7f-1865b8cccf38c4c399f7614615ffff8a",
-                modelViewUrl: "https://sdeuc1.eu-central-1.shapediver.com",
+                modelViewUrl: "https://sdeuc1.`eu-central-1.shapediver.com",
                 id: "mySession",
+                branding: {
+                  logo: "https://help.twitter.com/content/dam/help-twitter/brand/logo.png",
+                  backgroundColor: "#ff0000aa",
               });
             
               // read out the parameter with the specific name
