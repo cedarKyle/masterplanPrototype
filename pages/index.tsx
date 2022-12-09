@@ -46,14 +46,14 @@ export default function Home() {
       <div className={styles.header}>
         <div className={styles.title}>
           Welcome to <a href="https://en.wikipedia.org/wiki/Tulum">Manglar Madre</a>
-        </div>
+        </div>``
       </div>
         
         <div className={styles.canvasContainer}>
             <canvas className={styles.canvas} id="canvas"></canvas>
         </div>
 
-        <iframe class="airtable-embed" src="https://airtable.com/embed/shro4GR1nFfRnqvqf?backgroundColor=blue" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+        <iframe className ="airtable-embed" src="https://airtable.com/embed/shro4GR1nFfRnqvqf?backgroundColor=blue"></iframe>
 
 
     </div>
