@@ -11,8 +11,8 @@ export default function Home() {
                 canvas: document.getElementById("canvas") as HTMLCanvasElement,
                 id: "myViewport",
                 branding: {
-                  logo: "https://help.twitter.com/content/dam/help-twitter/brand/logo.png",
-                  backgroundColor: "#ff0000aa"
+                  logo: "https://ibb.co/N2n9Czm",
+                  backgroundColor: "#000000"
                 }
               });
               // create a session
