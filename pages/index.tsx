@@ -1,70 +1,30 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import { useEffect, useState } from "react";
-import { createViewport, createSession, PARAMETER_TYPE, ISessionApi, IParameterApi, } from "@shapediver/viewer";
+import { createViewport } from "@shapediver/viewer";
+import SdSession from "../src/components/SdSession";
+import SdSessionInputs from "../src/components/SdSessionInputs";
 
 export default function Home() {
-    const [session, setSession] = useState<ISessionApi | null>();
-    const [modelInputs, setModelInputs] = useState<JSX.Element[]>([]);
+    const benchTicket = "b6b127d7e06588addc43443617c1eeea7ea316bef7ad1273cdd0c82d67f89b8dd4a67a327037b0a3ba2f52377c7d0e1b2a5657dd245603b0a3771d650ea4fbdd76e8187dc21ed1824063e4041b60a28747ed5a51e48c5e77d0c683bee53fb01fa53255e24a74ae-3a01cf3d24f8366dd64a0e2dfce4d4fc";
+    const benchUrl = "https://sdeuc1.eu-central-1.shapediver.com";
+    
+    const shelfTicket = '124be652a22830809c7690b6490225e4db653c1b6d065bad26ae3f71ce636017f2784095eba478021d99aff9ed749ff8705f1c20f9edecefade03b27e2a48ddf7f78b8d6fef3c941c6fe48762fc9645c46effd6aa9f620311afc50cd0f294c5d640c16a2edb09d-ebeca640b168d58d6712919abc886168';
+    const shelfUrl = 'https://sddev2.eu-central-1.shapediver.com';
+    
+    const [ticket, setTicket] = useState(benchTicket);
+    const [modelViewUrl, setModelViewUrl] = useState(benchUrl);
+
+    const loadShapediverViewport = async () => {
+        const viewport = await createViewport({
+            canvas: document.getElementById("canvas") as HTMLCanvasElement,
+            id: "myViewport",
+        });
+    };
 
     useEffect(() => {
-        const loadShapediver = async () => {
-            const viewport = await createViewport({
-                canvas: document.getElementById("canvas") as HTMLCanvasElement,
-                id: "myViewport",
-            });
-            // create a session
-            const session = await createSession({
-                ticket: "b6b127d7e06588addc43443617c1eeea7ea316bef7ad1273cdd0c82d67f89b8dd4a67a327037b0a3ba2f52377c7d0e1b2a5657dd245603b0a3771d650ea4fbdd76e8187dc21ed1824063e4041b60a28747ed5a51e48c5e77d0c683bee53fb01fa53255e24a74ae-3a01cf3d24f8366dd64a0e2dfce4d4fc",
-                modelViewUrl: "https://sdeuc1.eu-central-1.shapediver.com",
-                id: "mySession",
-            });
-            
-            setSession(session);
-        };
-        loadShapediver();
+        loadShapediverViewport();
     }, []);
-
-    useEffect(() => {
-        if (session) {
-            // get all parameters and sort them
-            const parameters = Object.values(session.parameters);
-            window.console.log(session.parameters);
-            parameters.sort(
-                (a, b) => (a.order || Infinity) - (b.order || Infinity)
-            );
-
-            let newModelInputs = [];
-
-            for (let i = 0; i < parameters.length; i++) {
-                // get the parameter and assign the properties
-                const parameterObject = parameters[i];
-
-                const label = <label htmlFor={parameterObject.id}>{parameterObject.name}</label>;
-
-                const callback = async (v: any) => {
-                    parameterObject.value = v.target.value;
-                    // Weird hack - this is where the bug is..
-                    setSession(null);
-                    await session.customize();
-                    setSession(session);
-                };
-
-                // for the different types of the parameter, we need different inputs, or at least different options for inputs
-                const parameterInputElement = buildInputByType(parameterObject, callback);
-                
-                if (parameterInputElement !== null && parameterObject.hidden === false) {
-                    newModelInputs.push(
-                        <div className={styles.inputRow}>
-                            {label}
-                            {parameterInputElement}
-                        </div>
-                    );
-                }
-            }
-            setModelInputs(newModelInputs);
-        }
-    }, [session]);
 
     return (
         <div className={styles.container}>
@@ -90,48 +50,19 @@ export default function Home() {
                 <canvas className={styles.canvas} id="canvas"></canvas>
             </div>
             <div className={styles.inputsContainer}>
-                {modelInputs}
+            <SdSession
+                ticket={ticket}
+                modelViewUrl={modelViewUrl}
+            >
+                {/* 
+                TODO: Additional components to pull in from the example if we want to enable model interaction
+                <SdSessionInteractionData level={interactionLevel} interactionTypes={interactionTypes}/>
+                <SdSessionParameterBridge/>
+                <SdSessionParameterPanel/> 
+                */}
+                <SdSessionInputs/>
+            </SdSession>
             </div>
         </div>
     );
-}
-
-function buildInputByType(parameterObject: IParameterApi<any>, callback: any): JSX.Element | null {
-    switch (parameterObject.type) {
-        case (PARAMETER_TYPE.INT):
-        case (PARAMETER_TYPE.FLOAT):
-        case (PARAMETER_TYPE.EVEN):
-        case (PARAMETER_TYPE.ODD):
-            let step = 1 / Math.pow(10, parameterObject.decimalplaces!);
-            if (parameterObject.type === PARAMETER_TYPE.INT)
-                step = 1;
-            else if ( parameterObject.type === PARAMETER_TYPE.EVEN || parameterObject.type === PARAMETER_TYPE.ODD ) {
-                step = 2;
-            }
-            return <input type="range" id={parameterObject.id} min={parameterObject.min} max={parameterObject.max} value={parameterObject.value} step={step} onChange={callback}/>;
-        case (PARAMETER_TYPE.BOOL):
-            return <input id={parameterObject.id} type="checkbox" checked={parameterObject.value} onChange={callback}/>;
-        case (PARAMETER_TYPE.STRING):
-            return <input id={parameterObject.id} type="text" value={parameterObject.value} onChange={callback}/>;
-        case (PARAMETER_TYPE.COLOR):
-            return <input id={parameterObject.id} type="color" value={parameterObject.value} onChange={callback}/>;
-        case (PARAMETER_TYPE.STRINGLIST):
-            let options = [];
-            for (let j = 0; j < parameterObject.choices!.length; j++) {
-                let option = document.createElement("option");
-                option.setAttribute("value", j + "");
-                option.setAttribute(
-                    "name",
-                    parameterObject.choices![j]
-                );
-                option.innerHTML = parameterObject.choices![j];
-                if (parameterObject.value === j) {
-                    option.setAttribute("selected", "");
-                }
-                options.push(<option id={parameterObject.choices![j]} value={`${j}`} selected={parameterObject.value === j ? true : false}/>);
-            }
-            return <select id={parameterObject.id} onChange={callback}>{options}</select>;
-        default:
-            return null;
-    }
 }
