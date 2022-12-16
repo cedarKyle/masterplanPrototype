@@ -10,6 +10,16 @@ const inputsToDisplay = [
     "Visibility_Buildable_Envelope",
     "Visibility_Setback_Envelope",
     "Unit_Density",
+    "Single_Family_Area",
+    "Single_Family_Mix",
+    "Duplex_Mix",
+    "Triplex_Area",
+    "Triplex_Mix",
+    "Quadplex_Area",
+    "Quadplex_Mix",
+    "Townhome_Area",
+    "Townhome_Mix",
+    "Masterplan_Configuration",
 ];
 
 // Adapted from ShapediverReactExample:
@@ -30,12 +40,21 @@ export default function SdSessionInputs(): JSX.Element {
         );
 
         let newModelInputs: JSX.Element[] = [];
+
+        // Helper code to extract new input names from the list of all inputs:
+        // const names = parameters.map((p) => {
+        //     if (p.name !== "Colour Swatch" && p.name !== "Number Slider") {
+        //         return p.name;
+        //     }
+        // });
+        // window.console.log('names:', names);
+        
         
         parameters.forEach((item, index) => {
             // get the parameter and assign the properties
             const parameterObject = item;
             if (inputsToDisplay.includes(parameterObject.name)) {
-                const formattedName = parameterObject.name.replace("_", " ");
+                const formattedName = parameterObject.name.replaceAll("_", " ");
                 const label = (
                     <label htmlFor={parameterObject.id}>
                         {formattedName}
@@ -47,7 +66,10 @@ export default function SdSessionInputs(): JSX.Element {
                 if ( parameterInputElement !== null && parameterObject.hidden === false ) {
                     newModelInputs.push(
                         <div className={styles.sdvInputContainer}>
-                            {label}
+                            <div className={styles.inputLabels}>
+                                {label}
+                                {parameterObject.value.toString()}
+                            </div>
                             {parameterInputElement}
                         </div>
                     );
