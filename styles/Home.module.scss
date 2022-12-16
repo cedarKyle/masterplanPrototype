@@ -1,29 +1,53 @@
 .container {
-  padding: 2rem;
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  overflow: auto;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    padding: 16px 32px;
+    border-bottom: 1px solid black;
+    gap: 6px;
+    align-items: center ;
 }
 
 .gridLayout {
     width: 100%;
     height: 100%;
+    max-height: 60vh;
     display: grid;
     grid-template-columns: 1fr 500px;
     gap: 24px;
+    padding: 16px 32px;
+    background-color: lightgray;
 }
 
 .tableContainer {
+    display: flex;
     min-height: 400px;
-    height: 400px;
+    height: 100%;
     width: 100%;
-    background-color: #F1F1F1;
+    padding: 16px 32px;
+    background-color: lightgray;
+    overflow: hidden;
+}
+
+.tableContent {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     border: 1px solid black;
     border-radius: 8px;
-    padding: 1rem;
+    width: 100%;
+    padding: 16px;
+    background-color: white;
+    // overflow-y: auto;
+    // min-height: 500px;
 }
 
 .canvasContainer {
@@ -53,13 +77,23 @@
 }
 
 .title {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.cedarTitle {
+    @extend .title;
+    color: #4D8012;
 }
 
 .title,
 .description {
   text-align: center;
+}
+
+.subtitle {
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .description {
@@ -69,21 +103,19 @@
 }
 
 .inputsContainer {
-    // width: 80vh;
+    max-height: 60vh;
     width: 100%;
-    background-color: #F1F1F1;
+    background-color: white;
     display: flex;
     flex-direction: column;
     padding: 8px;
     border: 1px solid black;
     border-radius: 8px;
     gap: 8px;
-
     overflow-y: auto;
 }
 
-.inputRow {
-    // width: 500px;
+.sdvInputContainer {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -92,12 +124,90 @@
     justify-content: space-between;
 
     label {
+        font-size: 14px;
         font-weight: 700;
     }
 
     input {
         width: 300px;
-        // color: red;
-        // background-color: red;
+    }
+}
+
+.inputRow {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+    width: 380px;
+    label {
+        font-size: 14px;
+    }
+}
+
+.inputBox {
+    display: flex;
+    align-items: center;
+    max-width: 300px;
+    background: #fff;
+    border: 1px solid #a0a0a0;
+    border-radius: 99px;
+    padding-left: 0.5rem;
+    overflow: hidden;
+    font-family: sans-serif;
+  }
+  
+  .inputBox .prefix {
+    font-weight: 300;
+    font-size: 14px;
+    color: #999;
+  }
+  
+  .inputBox input {
+    flex-grow: 1;
+    font-size: 14px;
+    background: #fff;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+  }
+  
+  .input-box:focus-within {
+    border-color: #777;
+  }
+
+  .tableHeader {
+    display: flex;
+    justify-content: space-between;
+    gap: 64px;
+  }
+
+  .tableHeaderSection {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 8px;
+    width: 100%;
+
+    .line {
+        width: 100%;
+        height: 1px;
+        border-bottom: 1px solid black;
+    }
+  }
+
+  .dataRow {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: space-between;
+    width: 300px;
+    .propDescription {
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    .value {
+        font-weight: 700;
     }
 }
