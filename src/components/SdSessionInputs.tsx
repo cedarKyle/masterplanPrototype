@@ -4,6 +4,14 @@ import { IParameterApi } from "@shapediver/viewer";
 import styles from "../../styles/Home.module.scss";
 import { Slider, TextInput, Dropdown, ColorSwatch } from "./Inputs";
 
+const inputsToDisplay = [
+    "Duplex_Area",
+    "Visibility_Compatability_Envelope",
+    "Visibility_Buildable_Envelope",
+    "Visibility_Setback_Envelope",
+    "Unit_Density",
+];
+
 // Adapted from ShapediverReactExample:
 export default function SdSessionInputs(): JSX.Element {
     const { state } = useContext(SdSessionContext);
@@ -22,26 +30,28 @@ export default function SdSessionInputs(): JSX.Element {
         );
 
         let newModelInputs: JSX.Element[] = [];
-
+        
         parameters.forEach((item, index) => {
             // get the parameter and assign the properties
             const parameterObject = item;
-                        
-            const label = (
-                <label htmlFor={parameterObject.id}>
-                    {parameterObject.name}
-                </label>
-            );
-            
-            const parameterInputElement = buildInputByType(parameterObject, index);
-
-            if ( parameterInputElement !== null && parameterObject.hidden === false ) {
-                newModelInputs.push(
-                    <div className={styles.inputRow}>
-                        {label}
-                        {parameterInputElement}
-                    </div>
+            if (inputsToDisplay.includes(parameterObject.name)) {
+                const formattedName = parameterObject.name.replace("_", " ");
+                const label = (
+                    <label htmlFor={parameterObject.id}>
+                        {formattedName}
+                    </label>
                 );
+                
+                const parameterInputElement = buildInputByType(parameterObject, index);
+                
+                if ( parameterInputElement !== null && parameterObject.hidden === false ) {
+                    newModelInputs.push(
+                        <div className={styles.sdvInputContainer}>
+                            {label}
+                            {parameterInputElement}
+                        </div>
+                    );
+                }
             }
         });
 
