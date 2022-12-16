@@ -1,6 +1,7 @@
 import { IParameterApi, PARAMETER_TYPE } from "@shapediver/viewer";
 import { useContext, useState } from "react";
 import { SdSessionContext } from "./SdSessionContext";
+import { debounce } from 'debounce';
 
 interface SliderProps {
     param: IParameterApi<number>;
@@ -26,7 +27,9 @@ export const Slider = ({ param }: SliderProps): JSX.Element => {
             max={param.max}
             step={step}
             defaultValue={value}
-            onChange={(event: any) => dispatch!({ type: "setParameter", id: param.id, value: event.target.value + "", }) }
+            onChange={debounce((event: any) => dispatch!({type: 'setParameter', id: param.id, value: event.target.value+''}), 500)}
+
+            // onChange={(event: any) => dispatch!({ type: "setParameter", id: param.id, value: event.target.value + "", }) }
         />
     );
 };
