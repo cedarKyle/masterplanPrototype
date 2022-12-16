@@ -15,7 +15,7 @@ interface PriceSummary {
 }
 export default function Home() {
     const sdvUrl = "https://sdeuc1.eu-central-1.shapediver.com";
-    const albertLaneTicket = "9d8d603230c60d33ecd8a6677a9ea82d91baf37d56c48b3b4a3756d5c5f0b7dbe85ae66efa05833563ca5b0ddd6d4a50be60a5e549a389eb50ccae596bb3c2d7a3c5f0ddc2e94f2a3889b10d4322d5e0cf960e08113e988d837be29c49a4946ae53792614ec8b3-4ee7767a40574280d97976669673f36e";
+    const albertLaneTicket = "72169d516a27f7791052a9359540cf4f87458007565cf6423dc4c4d7dbf97491658738b376c9f74c9cd38484166108f541a9e8ea112559ba6b2cc0dbca7bdfd3a66da5a374ba1b92bd835e8e538fb485402486565afb6755157a57011ac2b66652d8725603e891-90d251910d3914d9afc966fae1ebf0f5";
     
     const [ticket, setTicket] = useState(albertLaneTicket);
     const [modelViewUrl, setModelViewUrl] = useState(sdvUrl);
