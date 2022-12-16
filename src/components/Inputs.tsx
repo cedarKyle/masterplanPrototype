@@ -28,8 +28,6 @@ export const Slider = ({ param }: SliderProps): JSX.Element => {
             step={step}
             defaultValue={value}
             onChange={debounce((event: any) => dispatch!({type: 'setParameter', id: param.id, value: event.target.value+''}), 500)}
-
-            // onChange={(event: any) => dispatch!({ type: "setParameter", id: param.id, value: event.target.value + "", }) }
         />
     );
 };
