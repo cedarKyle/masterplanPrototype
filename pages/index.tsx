@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import { useEffect, useState } from "react";
 import { addListener, createViewport, EVENTTYPE } from "@shapediver/viewer";
+import {InteractionData, InteractionEngine, SelectManager} from "@shapediver/viewer.features.interaction";
 import SdSession from "../src/components/SdSession";
 import SdSessionInputs from "../src/components/SdSessionInputs";
 import OutputsTable from "../src/components/OutputsTable";
@@ -33,7 +34,19 @@ export default function Home() {
             canvas: document.getElementById("canvas") as HTMLCanvasElement,
             id: "myViewport",
         });
+
+        // create the interactionEngine and provide it the viewport object
+        const interactionEngine = new InteractionEngine(viewport);
+
+        // create the selectionManager and add it
+        const selectManger = new SelectManager();
+        selectManger.effectMaterial = new MaterialStandardData({ color: "#ffff00" });
+        interactionEngine.addInteractionManager(selectManger);
+
+        //setSessionUpdated.node.data.push(new InteractionData({ select: true }));
     };
+
+
 
     useEffect(() => {
         loadShapediverViewport();
