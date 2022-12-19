@@ -70,6 +70,10 @@ function getTypology(value: number) {
     switch(value) {
         case 0:
             return "Single-family";
+        case 5:
+            return "Prototipo 1";
+        case 6:
+            return "Prototipo 2";
         default:
             return "N/A";
     }
