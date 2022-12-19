@@ -72,8 +72,8 @@ export default function Home() {
                 <div className={styles.cedarTitle}>cedar</div>
             </div>
             <div className={styles.header}>
-                <div className={styles.subtitle}>
-                    7605 Albert Rd, Austin, TX, 78745
+                <div className={styles.subtitle}>         
+                    Laguna Nopalitos, Tulum
                 </div>
             </div>
             <SdSession ticket={ticket} modelViewUrl={modelViewUrl}>
@@ -83,6 +83,7 @@ export default function Home() {
                     </div>
                     <div className={styles.inputsContainer}>
                         {/* 
+                        7605 Albert Rd, Austin, TX, 78745
                             TODO: Additional components to pull in from the example if we want to enable model interaction
                             <SdSessionInteractionData level={interactionLevel} interactionTypes={interactionTypes}/>
                             <SdSessionParameterBridge/>
