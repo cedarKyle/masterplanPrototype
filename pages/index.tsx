@@ -73,7 +73,7 @@ export default function Home() {
             </div>
             <div className={styles.header}>
                 <div className={styles.subtitle}>         
-                    Laguna Nopalitos, Tulum
+                    8501 S 1st, Austin, TX
                 </div>
             </div>
             <SdSession ticket={ticket} modelViewUrl={modelViewUrl}>
