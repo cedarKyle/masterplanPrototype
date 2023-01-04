@@ -37,7 +37,7 @@ const OutputsTable = ({ constructionCost, salePrice, onDataUpdate }) => {
             let sumSalePrice = 0;
 
             if (phaseList && lotNumberList && typologyList && lotAreaList && gdvList) {
-                for (let i = 0; i < phaseList.length; i ++) {
+                for (let i = 0; i < phaseList.length - 1; i ++) {
                     const parcelObject = {
                             // "phase": phaseList[i],
                             "lotNumber": `Lot ${lotNumberList[i]}`,
@@ -75,6 +75,7 @@ function getTypology(value: number) {
         case 6:
             return "Prototipo 2";
         default:
+            window.console.log("No Typology found");
             return "N/A";
     }
 }

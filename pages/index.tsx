@@ -51,8 +51,10 @@ export default function Home() {
     const handlePriceSummaryUpdate = (data: PriceSummary) => {
         // 
         if ((priceData.sumProfit !== data.sumProfit)) {
-            window.console.log('pricing data:', data);
-            setPriceData(data);
+            if (!Number.isNaN(priceData.sumProfit)) {
+                window.console.log('pricing data:', data);
+                setPriceData(data);
+            }
         }
         
     }
