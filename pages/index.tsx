@@ -16,7 +16,7 @@ interface PriceSummary {
 export default function Home() {
     const sdvUrl = "https://sdeuc1.eu-central-1.shapediver.com";
     //const albertLaneTicket = "913d766086541b73e3405941c0ee90e17953351733eafd64f09803b1d7763cceb09554c0f123e0875d3d86f99724bd95d9ea766856feb6ce58ff2eea48f7e92fa596bf5681da78e75470d2a3d49609129450a4d0e084abf47e8cc141069ce10d125b9d8997c014-b67d0c134c480433b7e2352e73b8a9fa";
-    const albertLaneTicket = "f5125c22045ae1c86361948f7919ca0f814facc70156e8cafda0e32b3271c1cbf9a7fc87e5c6b6b314dd7ce6593716af110c752ca0209a5a0806e8bcc4951324fb93de92abc78622329ec76a16ec98ab01f87c0a36b62554fb2ee5bcf94c34c7d6184a99ccb7fb-1b2f8fefd39e90b8a4101c0560acd9b7";
+    const albertLaneTicket = "3f3894354578c6653a28c409c19fb45dd148b06b0c6c0c9aa43ff33249f48764255c4062225e78bd8ca555a56f98fb8f4c85833f028e4f42edff786eadab67ed61d92949fe86df16ee55a52ef3bd42d20ec445ea423d2349ba3ca2c7737252278b232d19a5343e-03d82f81853eded8e032386e8c1ff474";
 
     const [ticket, setTicket] = useState(albertLaneTicket);
     const [modelViewUrl, setModelViewUrl] = useState(sdvUrl);
